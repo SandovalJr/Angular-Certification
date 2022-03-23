@@ -1,5 +1,5 @@
 // DESTRUCTURACION DE ARGUMENTOS
-interface Producto {
+export interface Producto {
     desc: string;
     price: number;
   }
@@ -14,7 +14,7 @@ interface Producto {
     price: 29000,
   };
   
-  function calcularISV(productos: Producto[]): [number, number] {
+  export function calcularISV(productos: Producto[]): [number, number] {
     let total = 0;
     productos.forEach(({ price }) => {
       total += price;
@@ -25,6 +25,6 @@ interface Producto {
   const articulos = [ipadAir, iphone];
   const [total, isv] = calcularISV(articulos);
   
-  console.log(total);
-  console.log(isv);
+  // console.log(total);
+  // console.log(isv);
   
