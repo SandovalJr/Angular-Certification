@@ -1,3 +1,6 @@
+
+// TIPOS BASICOS DE VARIABLES 
+
 console.log("Hola Mundo, que hacen!");
 
 let nombre: string = "elias";

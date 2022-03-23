@@ -1,4 +1,5 @@
 
+//ARRAY Y OBJETOS
 
 interface personajesi {
     nombre: string;

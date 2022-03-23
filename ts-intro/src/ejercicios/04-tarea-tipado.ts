@@ -1,3 +1,5 @@
+//TAREA SOBRE TIPADOS
+
 interface SuperHeroInterface {
     nombre: string;
     edad: number;
