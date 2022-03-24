@@ -1,3 +1,5 @@
+//CLASES
+
 class personaNormal {
     constructor(public nombre: string, public direccion: string) {
       this.nombre = nombre;
