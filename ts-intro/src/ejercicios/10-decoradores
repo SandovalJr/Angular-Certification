@@ -1,21 +1,23 @@
 //decorador
+//ENCADENAMIENTO OPCIONAL
+
 function reportableClassDecorator<T extends { new (...args: any[]): {} }>(
-  constructor: T
-) {
-  return class extends constructor {
-    reportingURL = "http://www...";
-  };
-}
-
-@reportableClassDecorator
-class misuperclase {
-  public mipropiedad: string = "jasdfafsd";
-  imprimir() {
-    console.log("hola");
+    constructor: T
+  ) {
+    return class extends constructor {
+      reportingURL = "http://www...";
+    };
   }
-}
-
-console.log(misuperclase);
-
-const miclase = new misuperclase();
-
+  
+  @reportableClassDecorator
+  class misuperclase {
+    public mipropiedad: string = "jasdfafsd";
+    imprimir() {
+      console.log("hola");
+    }
+  }
+  
+  console.log(misuperclase);
+  
+  const miclase = new misuperclase();
+  
