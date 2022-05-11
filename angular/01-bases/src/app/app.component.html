@@ -1,4 +1,8 @@
 <h2>{{ titulo }}</h2>
-<button (click)="acumular(1)">+1</button>
+<button (click)="acumular(base)">+{{ base }}</button>
 <span>{{ contador }}</span>
-<button (click)="acumular(-1)">-1</button>
+<button (click)="acumular(-base)">-{{ base }}</button>
+
+<h2>Base</h2>
+
+<h4>La base es: {{ base }}</h4>
