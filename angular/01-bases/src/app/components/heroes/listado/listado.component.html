@@ -1,0 +1,7 @@
+<h4 class="text-cente">LISTADO HEROES</h4>
+<h3>El hero borrardo es: {{ heroborrado }}</h3>
+<button (click)="BorrarHero()">Borrrar</button>
+
+<ul>
+  <li *ngFor="let hero of heroes; let i = index">{{ i }}- {{ hero }}</li>
+</ul>
