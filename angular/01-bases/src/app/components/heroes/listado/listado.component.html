@@ -1,5 +1,7 @@
 <h4 class="text-cente">LISTADO HEROES</h4>
-<h3>El hero borrardo es: {{ heroborrado }}</h3>
+<h3 *ngIf="heroborrado">
+  El hero borrardo es: <small>{{ heroborrado }}</small>
+</h3>
 <button (click)="BorrarHero()">Borrrar</button>
 
 <ul>
