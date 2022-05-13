@@ -7,11 +7,6 @@ import { personaje } from '../interfaces/dbz.interfaces';
   styleUrls: ['./main-page.component.sass'],
 })
 export class MainPageComponent {
-  nuevo: personaje = {
-    nombre: '',
-    poder: 0,
-  };
-
   personajes: personaje[] = [
     {
       nombre: 'Goku',
@@ -23,21 +18,10 @@ export class MainPageComponent {
     },
   ];
 
-  agregar() {
-    if (this.nuevo.nombre.trim().length == 0) {
-      return;
-    } else {
-      // metemos los valores al array
-      this.personajes.push(this.nuevo);
-      console.log(this.personajes);
-
-      // restablecemos los valores
-      this.nuevo = {
-        nombre: '',
-        poder: 0,
-      };
-    }
-  }
+  personajeRandomPapa: personaje = {
+    nombre: 'elias',
+    poder: 21568,
+  };
 
   cambiarName(event: any) {
     console.log(event.target.value);
