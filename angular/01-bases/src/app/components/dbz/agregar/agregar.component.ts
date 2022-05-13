@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { personaje } from '../interfaces/dbz.interfaces';
 
 @Component({
@@ -8,7 +8,7 @@ import { personaje } from '../interfaces/dbz.interfaces';
 })
 export class AgregarComponent {
   @Input() personajeRandomInput: personaje = { nombre: '', poder: 0 };
-  @Input() personajesArrayInput: personaje[] = [];
+  @Output() onNuevoPersonaje: EventEmitter<personaje> = new EventEmitter();
 
   nuevo: personaje = {
     nombre: '',
@@ -22,9 +22,11 @@ export class AgregarComponent {
     if (this.nuevo.nombre.trim().length == 0) {
       return;
     } else {
-      // metemos los valores al array
-      this.personajesArrayInput.push(this.nuevo);
-      console.log(this.personajesArrayInput);
+      this.onNuevoPersonaje.emit(this.nuevo);
+      
+      // metemos los valores al array eb la pratica de INPUTS
+      // this.personajesArrayInput.push(this.nuevo);
+      // console.log(this.personajesArrayInput);
 
       // restablecemos los valores
       this.nuevo = {

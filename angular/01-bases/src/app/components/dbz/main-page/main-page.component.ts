@@ -26,4 +26,9 @@ export class MainPageComponent {
   cambiarName(event: any) {
     console.log(event.target.value);
   }
+
+  agregarnuevoPersonaje(argumento: personaje) {
+    // console.log(argumento);
+    this.personajes.push(argumento);
+  }
 }
