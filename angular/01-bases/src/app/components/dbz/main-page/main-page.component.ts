@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { personaje } from '../interfaces/dbz.interfaces';
+import { dbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-main-page',
@@ -29,6 +30,11 @@ export class MainPageComponent {
 
   agregarnuevoPersonaje(argumento: personaje) {
     // console.log(argumento);
+    // debugger
     this.personajes.push(argumento);
+    // console.log(this.personajes);
   }
+
+  constructor(private dbzservice: dbzService) {}
+  
 }
