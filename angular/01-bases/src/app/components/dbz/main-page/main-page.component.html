@@ -3,13 +3,10 @@
 
 <div class="row">
   <div class="col">
-    <app-personajes [personajesinput]="personajes"> </app-personajes>
+    <app-personajes> </app-personajes>
   </div>
 
   <div class="col">
-    <app-agregar
-      [personajeRandomInput]="personajeRandomPapa"
-      (onNuevoPersonaje)="agregarnuevoPersonaje( $event)"
-    ></app-agregar>
+    <app-agregar [personajeRandomInput]="personajeRandomPapa"></app-agregar>
   </div>
 </div>

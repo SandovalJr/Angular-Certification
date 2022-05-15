@@ -9,8 +9,13 @@ import { dbzService } from '../services/dbz.service';
 })
 export class PersonajesComponent {
   // estos personajes van a venir desde el componente padre
-  @Input() personajesinput: personaje[] = [];
+  // @Input() personajesinput: personaje[] = [];
 
+  get personajes() {
+    return this.dbzservice.personajes;
+  }
+
+  
   constructor(private dbzservice: dbzService) {}
 
   ngOnInit(): void {}
