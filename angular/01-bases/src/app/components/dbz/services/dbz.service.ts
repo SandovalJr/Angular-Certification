@@ -19,6 +19,11 @@ export class dbzService {
   }
 
   constructor() {
-    console.log('Servicio Inicializado');
+    // console.log('Servicio Inicializado');
   }
+
+  agregarPersonaje(dataPersonaje: personaje) {
+    this._personajes.push(dataPersonaje);
+  }
+  
 }
