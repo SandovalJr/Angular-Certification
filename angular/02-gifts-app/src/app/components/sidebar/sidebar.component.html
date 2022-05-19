@@ -2,6 +2,10 @@
   <h3 class="text-light">Gifts App</h3>
   <hr class="text-white" />
   <div class="list-group list-reset">
-    <a href="" class="list-group-item list-group-item-action">Dashboard</a>
+    <a
+      href=""
+      class="list-group-item list-group-item-action mt-2"
+      *ngFor="let gift of giftsHistory"
+    >{{gift}}</a>
   </div>
 </div>

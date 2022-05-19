@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GiftsService } from '../services/gifts.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,10 +9,12 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class BusquedaComponent {
   @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
 
+  constructor(private giftsServices: GiftsService) {}
+
   buscar() {
     const valor = this.txtBuscar.nativeElement.value;
-    console.log(valor);
-
+    this.giftsServices.buscarGifts(valor);
+    // console.log(valor);
     this.txtBuscar.nativeElement.value = '';
   }
 }

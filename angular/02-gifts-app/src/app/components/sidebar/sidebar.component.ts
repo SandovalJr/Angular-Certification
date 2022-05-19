@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { GiftsService } from '../gifts/services/gifts.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  constructor(private giftsS: GiftsService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  get giftsHistory() {
+    return [...this.giftsS.historial];
   }
 
+
+  ngOnInit(): void {}
 }
