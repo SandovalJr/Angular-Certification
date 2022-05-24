@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Gift, SearchGiftsResponse } from '../interfaces/gifts.interface';
@@ -9,7 +9,7 @@ import { Gift, SearchGiftsResponse } from '../interfaces/gifts.interface';
 export class GiftsService {
   private _historial: string[] = [];
   private api_key: string = 'QHkZriduhuPcSVNWBeFW5YpCYYvYUY34';
-
+  private url: string = 'https://api.giphy.com/v1/gifs';
   public resultados: Gift[] = [];
 
   // obtener el historial y si cambia obtenerlo en el tiempo real
@@ -29,7 +29,7 @@ export class GiftsService {
   // se va almacenando el historial
   buscarGifts(query: string = '') {
     // console.log('buscargif' + query);
-    
+
     query = query.trim().toLocaleLowerCase();
 
     // el includes es para ver si lo que estamos agregando en el elemento lo incluye
@@ -43,10 +43,15 @@ export class GiftsService {
 
     // console.log(query)
 
+    const params = new HttpParams()
+      .set('api_key', this.api_key)
+      .set('limit', '10')
+      .set('q', query);
+
+    console.log(params.toString());
+
     this.http
-      .get<SearchGiftsResponse>(
-        `https://api.giphy.com/v1/gifs/search?api_key=QHkZriduhuPcSVNWBeFW5YpCYYvYUY34&q=${query}&limit=10`
-      )
+      .get<SearchGiftsResponse>(`${this.url}/search`,{ params })
       .subscribe((resp) => {
         console.log(resp.data);
 
