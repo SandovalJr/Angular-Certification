@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { GiftsService } from '../services/gifts.service';
 
 @Component({
   selector: 'app-resultados',
   templateUrl: './resultados.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class ResultadosComponent implements OnInit {
+  constructor(private giftService: GiftsService) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  get resultados() {
+    return this.giftService.resultados;
   }
 
+
+  
 }
