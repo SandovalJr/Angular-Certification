@@ -13,6 +13,9 @@ export class SidebarComponent implements OnInit {
     return [...this.giftsS.historial];
   }
 
+  buscarh(personaje: string) {
+    this.giftsS.buscarGifts(personaje);
+  }
 
   ngOnInit(): void {}
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Gift, SearchGiftsResponse } from '../interfaces/gifts.interface';
 
 @Injectable({
@@ -27,6 +28,8 @@ export class GiftsService {
 
   // se va almacenando el historial
   buscarGifts(query: string = '') {
+    console.log('buscargif' + query);
+    
     query = query.trim().toLocaleLowerCase();
 
     // el includes es para ver si lo que estamos agregando en el elemento lo incluye

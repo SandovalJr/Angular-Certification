@@ -12,7 +12,9 @@ export class ResultadosComponent implements OnInit {
   ngOnInit(): void {}
 
   get resultados() {
+
     return this.giftService.resultados;
+    
   }
 
 
