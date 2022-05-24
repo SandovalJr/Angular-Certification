@@ -28,7 +28,7 @@ export class GiftsService {
 
   // se va almacenando el historial
   buscarGifts(query: string = '') {
-    console.log('buscargif' + query);
+    // console.log('buscargif' + query);
     
     query = query.trim().toLocaleLowerCase();
 
