@@ -16,7 +16,13 @@ export class GiftsService {
     return [...this._historial];
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    if (localStorage.getItem('historial')) {
+      this._historial = JSON.parse(localStorage.getItem('historial')!);
+    }
+
+    
+  }
 
   // se va almacenando el historial
   buscarGifts(query: string = '') {
@@ -27,6 +33,8 @@ export class GiftsService {
       this._historial.unshift(query);
       // para no poder agregar mas de 10
       this._historial = this._historial.splice(0, 10);
+
+      localStorage.setItem('historial', JSON.stringify(this._historial));
     }
 
     // console.log(query)
@@ -39,7 +47,6 @@ export class GiftsService {
         console.log(resp.data);
 
         this.resultados = resp.data;
-        
       });
 
     // console.log(this._historial);
