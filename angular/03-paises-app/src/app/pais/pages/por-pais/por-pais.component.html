@@ -21,7 +21,7 @@
   Informacion no encontrada: {{ termino }}
 </div>
 
-<div class="row">
+<div *ngIf="!error && !vaciot" class="row">
   <div class="col">
     <table class="table table-hover">
       <thead>
@@ -33,8 +33,14 @@
           <th>Op</th>
         </tr>
       </thead>
-      <tbody>
-        <td></td>
+      <tbody *ngFor="let pais of paises; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td><img class="flag" [src]="pais.flags.png" alt="" /></td>
+        <td>{{ pais.name.common }}</td>
+        <td>{{ pais.population | number }}</td>
+        <td>
+          <a [routerLink]="['/ver', pais.cca2]"> Ver</a>
+        </td>
       </tbody>
     </table>
   </div>
