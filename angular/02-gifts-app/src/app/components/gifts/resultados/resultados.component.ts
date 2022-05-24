@@ -16,5 +16,6 @@ export class ResultadosComponent implements OnInit {
   }
 
 
+
   
 }

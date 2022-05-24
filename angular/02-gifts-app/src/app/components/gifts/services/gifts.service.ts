@@ -17,11 +17,12 @@ export class GiftsService {
   }
 
   constructor(private http: HttpClient) {
-    if (localStorage.getItem('historial')) {
-      this._historial = JSON.parse(localStorage.getItem('historial')!);
-    }
+    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
 
-    
+    // if (localStorage.getItem('historial')) {
+    //   this._historial = JSON.parse(localStorage.getItem('historial')!);
+    // }
   }
 
   // se va almacenando el historial
@@ -47,6 +48,7 @@ export class GiftsService {
         console.log(resp.data);
 
         this.resultados = resp.data;
+        localStorage.setItem('resultados', JSON.stringify(this.resultados));
       });
 
     // console.log(this._historial);
