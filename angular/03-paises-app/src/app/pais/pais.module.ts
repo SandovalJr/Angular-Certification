@@ -7,6 +7,7 @@ import { PorCapitalComponent } from './pages/por-capital/por-capital.component';
 import { PorPaisComponent } from './pages/por-pais/por-pais.component';
 import { PorRegionComponent } from './pages/por-region/por-region.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
+import { PaisTableComponent } from './components/pais-table/pais-table.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,15 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
     PorPaisComponent,
     PorRegionComponent,
     VerPaisComponent,
+    PaisTableComponent,
   ],
   exports: [
     PorCapitalComponent,
     PorPaisComponent,
     PorRegionComponent,
     VerPaisComponent,
+    PaisTableComponent,
   ],
-  imports: [CommonModule,RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
 })
 export class PaisModule {}
