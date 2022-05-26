@@ -9,7 +9,7 @@ import { Country } from '../../interfaces/pais.interface';
   styleUrls: ['./ver-pais.component.css'],
 })
 export class VerPaisComponent implements OnInit {
-  pais!: Country[];
+  pais!: Country;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,7 +38,8 @@ export class VerPaisComponent implements OnInit {
       )
       .subscribe((pais) => {
         // console.log(pais);
-        this.pais = pais;
+        this.pais = pais[0];
       });
+
   }
 }
