@@ -3,26 +3,21 @@
 
 <div class="row">
   <div class="col">
-    <form autocomplete="off" (ngSubmit)="buscar()">
-      <input
-        type="text"
-        name="termino"
-        class="form-control"
-        placeholder="Buscar Pais...."
-        [(ngModel)]="termino"
-      />
-    </form>
+    <app-pais-input
+      (onEnter)="buscarpp($event)"
+      (onDebounce)="seguerencias($event)"
+    ></app-pais-input>
   </div>
 </div>
 
 <hr />
 
 <div class="alert alert-danger" *ngIf="error">
-  Informacion no encontrada: {{ termino }}
+  Informacion no encontrada: {{ terminoPP }}
 </div>
 
 <div *ngIf="!error && !vaciot" class="row">
   <div class="col">
-    <app-pais-table  [paisesInput]="paises"></app-pais-table>
+    <app-pais-table [paisesInput]="paises"></app-pais-table>
   </div>
 </div>

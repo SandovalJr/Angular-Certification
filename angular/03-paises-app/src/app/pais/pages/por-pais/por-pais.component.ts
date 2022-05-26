@@ -8,7 +8,7 @@ import { PaisService } from '../../services/pais.service';
   styleUrls: ['./por-pais.component.css'],
 })
 export class PorPaisComponent implements OnInit {
-  termino: string = '';
+  terminoPP: string = '';
   error: boolean = false;
   vaciot: boolean = true;
   paises: Country[] = [];
@@ -17,14 +17,15 @@ export class PorPaisComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  buscar() {
+  buscarpp(terminoBusqueda: string) {
     this.error = false;
+    this.terminoPP = terminoBusqueda;
     // console.log(this.termino);
-    this.paisS.buscarPais(this.termino).subscribe(
+    this.paisS.buscarPais(terminoBusqueda).subscribe(
       // lo que recibo es la respuesta
       (pais) => {
         this.vaciot = false;
-        console.log(pais);
+        // console.log(pais);
         this.paises = pais;
       },
       (err) => {
@@ -34,5 +35,10 @@ export class PorPaisComponent implements OnInit {
         // console.info(err);
       }
     );
+  }
+
+  seguerencias(termino: string) {
+    this.error = false;
+    console.log(termino);
   }
 }
