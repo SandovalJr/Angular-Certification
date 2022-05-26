@@ -19,8 +19,12 @@ export class PaisService {
   buscarCapital(capital: string): Observable<Country[]> {
     // console.log(capital);
     const urlc = `${this.urlname}/capital/${capital}`;
-    return this.http.get<Country[]>(urlc) ;
+    return this.http.get<Country[]>(urlc);
   }
 
+  verPais(id: string) {
+    const urlVer = `${this.urlname}/alpha/${id}`;
+    return this.http.get<Country[]>(urlVer);
+  }
   
 }

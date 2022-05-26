@@ -35,8 +35,5 @@ export class PorCapitalComponent implements OnInit {
     );
   }
 
-  seguerencias(termino: string) {
-    this.error = false;
-    console.log(termino);
-  }
+
 }
