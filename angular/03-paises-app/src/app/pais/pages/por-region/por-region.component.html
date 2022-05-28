@@ -19,12 +19,13 @@
       *ngFor="let region of regiones"
       [class]="getClass(region)"
       (click)="activarRegion(region)"
+      (click)="PaisesRegion(region)"
     >
       {{ region }}
     </button>
   </div>
 </div>
 
-<div class="row mt-5">
-  <app-pais-table></app-pais-table>
+<div class="row mt-5" *ngIf="paises.length > 0">
+  <app-pais-table [paisesInput]="paises"></app-pais-table>
 </div>

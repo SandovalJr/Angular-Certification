@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Country } from '../../interfaces/pais.interface';
+import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-por-region',
@@ -8,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class PorRegionComponent implements OnInit {
   regiones: string[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   regionActiva: string = '';
+  paises: Country[] = [];
+  // tableValidation: boolean = false;
 
-  constructor() {}
+  constructor(private paisS: PaisService) {}
 
   ngOnInit(): void {}
 
@@ -23,5 +27,18 @@ export class PorRegionComponent implements OnInit {
   activarRegion(region: string) {
     this.regionActiva = region;
     console.log(this.regionActiva);
+  }
+
+  PaisesRegion(region: string) {
+    this.paisS.buscarRegion(region).subscribe(
+      (pais) => {
+        this.paises = pais;
+        // console.log(this.paises);
+        // this.tableValidation = true;
+      },
+      (err) => {
+        console.log('error');
+      }
+    );
   }
 }
