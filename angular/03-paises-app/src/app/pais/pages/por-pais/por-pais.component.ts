@@ -10,8 +10,10 @@ import { PaisService } from '../../services/pais.service';
 export class PorPaisComponent implements OnInit {
   terminoPP: string = '';
   error: boolean = false;
+  mostrarSeguerencias: boolean = false;
   vaciot: boolean = true;
   paises: Country[] = [];
+  paisesSegueridos: Country[] = [];
 
   constructor(private paisS: PaisService) {}
 
@@ -19,6 +21,8 @@ export class PorPaisComponent implements OnInit {
 
   buscarpp(terminoBusqueda: string) {
     this.error = false;
+    this.mostrarSeguerencias = false;
+
     this.terminoPP = terminoBusqueda;
     // console.log(this.termino);
     this.paisS.buscarPais(terminoBusqueda).subscribe(
@@ -38,7 +42,23 @@ export class PorPaisComponent implements OnInit {
   }
 
   seguerencias(termino: string) {
+    this.mostrarSeguerencias = true;
     this.error = false;
-    console.log(termino);
+    // console.log(termino);
+    this.terminoPP = termino;
+
+    this.paisS.buscarPais(termino).subscribe(
+      (paises) => {
+        this.paisesSegueridos = paises.splice(0, 5);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  buscarSeguerido(termino: string) {
+    this.buscarpp(termino);
+    // this.mostrarSeguerencias = false;
   }
 }
