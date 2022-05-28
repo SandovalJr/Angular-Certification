@@ -22,9 +22,13 @@ export class PaisService {
     return this.http.get<Country[]>(urlc);
   }
 
+  buscarRegion(region: string) {
+    const urlR = `${this.urlname}/region/${region}`;
+    return this.http.get<Country[]>(urlR);
+  }
+
   verPais(id: string) {
     const urlVer = `${this.urlname}/alpha/${id}`;
     return this.http.get<Country[]>(urlVer);
   }
-  
 }

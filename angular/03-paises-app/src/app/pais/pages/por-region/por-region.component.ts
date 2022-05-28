@@ -13,6 +13,13 @@ export class PorRegionComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // para comparar si la region esta activa y lo mandamos por una clase
+  getClass(region: string): string {
+    return region === this.regionActiva
+      ? 'btn btn-primary'
+      : 'btn btn-outline-primary';
+  }
+
   activarRegion(region: string) {
     this.regionActiva = region;
     console.log(this.regionActiva);
