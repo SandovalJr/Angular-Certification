@@ -36,10 +36,14 @@ export class VerPaisComponent implements OnInit {
         // el tap imprime en consola lo que le toca
         tap(console.log)
       )
-      .subscribe((pais) => {
-        // console.log(pais);
-        this.pais = pais[0];
-      });
-
+      .subscribe(
+        (pais) => {
+          // console.log(pais);
+          this.pais = pais[0];
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   }
 }

@@ -25,8 +25,14 @@ export class PorRegionComponent implements OnInit {
   }
 
   activarRegion(region: string) {
+    
+    if (region === this.regionActiva) {
+      return;
+    }
+
+    this.paises = [];
     this.regionActiva = region;
-    console.log(this.regionActiva);
+    // console.log(this.regionActiva);
   }
 
   PaisesRegion(region: string) {
