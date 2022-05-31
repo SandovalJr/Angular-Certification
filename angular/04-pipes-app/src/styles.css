@@ -9,3 +9,7 @@ body {
 .text-layout {
   color: var(--text-color);
 }
+
+.iconoangular {
+  width: 50px;
+}
