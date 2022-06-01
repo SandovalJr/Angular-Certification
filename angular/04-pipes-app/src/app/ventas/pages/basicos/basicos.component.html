@@ -6,12 +6,56 @@
 
 <div class="grid">
   <div class="col-4">
-    <p-card header="uppercase"></p-card>
+    <p-card header="uppercase" [subheader]="nombreLower | uppercase">
+      {{ nombreLower | uppercase }}
+    </p-card>
   </div>
-  <div class="col-4">2</div>
-  <div class="col-4">3</div>
+  <div class="col-4">
+    <p-card header="lowercase" [subheader]="nombreUpper | lowercase">
+      {{ nombreUpper | lowercase }}
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="titlecase" [subheader]="nombreCompleto | titlecase">
+      {{ nombreCompleto | titlecase }}
+    </p-card>
+  </div>
+</div>
+
+<div class="text-layout">
+  <h1>Date | Fecha | Pipe</h1>
+
+  <p>Pipes de fechas</p>
+
+  <div class="grid">
+    <div class="col-6">
+      <p-card
+        ><ul>
+          <li>Fecha</li>
+          <li>Fecha | date</li>
+          <li>Fecha | date:'short'</li>
+          <li>Fecha | date:'long'</li>
+          <li>Fecha | date:'MMMM'</li>
+          <li>Fecha | date:'MMMM'</li>
+          <li>Fecha | date:'yyyy'</li>
+        </ul></p-card
+      >
+    </div>
+
+    <div class="col-6">
+      <p-card
+        ><ul>
+          <li>{{ fecha }}</li>
+          <li>{{ fecha | date }}</li>
+          <li>{{ fecha | date: "short" }}</li>
+          <li>{{ fecha | date: "long" }}</li>
+          <li>{{ fecha | date: "yyyy" }}</li>
+        </ul></p-card
+      >
+    </div>
 
 
 
-  
+  </div>
 </div>
