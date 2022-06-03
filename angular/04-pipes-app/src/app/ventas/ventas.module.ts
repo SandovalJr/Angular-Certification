@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
+// pipe
+import { MayusculasPipe } from './pipes/mayusculas.pipe';
 
 
 
@@ -16,6 +18,7 @@ import { OrdenarComponent } from './pages/ordenar/ordenar.component';
     NoComunesComponent,
     BasicosComponent,
     OrdenarComponent,
+    MayusculasPipe
   ],
   exports: [
     NumerosComponent,
