@@ -40,18 +40,27 @@ export class NoComunesComponent implements OnInit {
     this.genero = 'F';
   }
 
-
   // KeyValue Pipe
 
-persona = {
-  nombre:'Elias',
-  edad:22,
-  direccion:'Ottawa, Canada'
-}
+  persona = {
+    nombre: 'Elias',
+    edad: 22,
+    direccion: 'Ottawa, Canada',
+  };
 
-
-
-
-
-  
+  // json pipe
+  heroes = [
+    {
+      nombre: 'superman',
+      vuela: true,
+    },
+    {
+      nombre: 'Batman',
+      vuela: false,
+    },
+    {
+      nombre: 'Aqua Man',
+      vuela: true,
+    },
+  ];
 }
