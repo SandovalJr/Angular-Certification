@@ -12,6 +12,8 @@ import { VentasModule } from './ventas/ventas.module';
 import '@angular/common/locales/global/es';
 import '@angular/common/locales/global/fr';
 
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
