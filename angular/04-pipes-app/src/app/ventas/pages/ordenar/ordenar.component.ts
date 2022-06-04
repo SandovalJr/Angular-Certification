@@ -9,6 +9,8 @@ import { Color, Heroe } from '../../interfaces/ventas.interface';
 })
 export class OrdenarComponent implements OnInit {
 
+  ordenarString: string = ''
+
   valorMayusculas: boolean = true;
 
   heroes: Heroe[] = [
@@ -52,5 +54,15 @@ export class OrdenarComponent implements OnInit {
     this.valorMayusculas = !this.valorMayusculas
     // return (this.valorMayusculas) ? this.valorMayusculas = false : this.valorMayusculas = true
   }
+
+
+  ordenarNombres(valor: string) {
+    this.ordenarString = valor
+    // console.log(valor);
+    
+  }
+
+
+
 
 }
