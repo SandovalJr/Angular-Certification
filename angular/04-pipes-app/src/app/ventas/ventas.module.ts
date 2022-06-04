@@ -11,14 +11,20 @@ import { BasicosComponent } from './pages/basicos/basicos.component';
 import { NumerosComponent } from './pages/numeros/numeros.component';
 import { NoComunesComponent } from './pages/no-comunes/no-comunes.component';
 import { OrdenarComponent } from './pages/ordenar/ordenar.component';
+import { VuelaPipe } from './pipes/vuela.pipe';
+import { OrdenarPipe } from './pipes/ordenar.pipe';
 
 @NgModule({
   declarations: [
+    // componentes
     NumerosComponent,
     NoComunesComponent,
     BasicosComponent,
     OrdenarComponent,
-    MayusculasPipe
+    // Pipes
+    MayusculasPipe,
+    VuelaPipe,
+    OrdenarPipe
   ],
   exports: [
     NumerosComponent,
