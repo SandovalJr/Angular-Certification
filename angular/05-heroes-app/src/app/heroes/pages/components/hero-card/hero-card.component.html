@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ heroesInput.superhero }}</mat-card-title>
+    <mat-card-subtitle>{{ heroesInput.alter_ego }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image src="assets/heroes/{{ heroesInput.id }}.jpg" />
+  <mat-card-content>
+    <h3>{{ heroesInput.publisher }}</h3>
+
+    <p>
+      <strong>Primera aparicion</strong> {{ heroesInput.first_appearance }}
+      <br />
+      <strong>Personajes:</strong> {{ heroesInput.characters }}
+    </p>
+    <br />
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="warn">Leer mas...</button>
+    <button mat-button color="info">Editar</button>
+  </mat-card-actions>
+</mat-card>

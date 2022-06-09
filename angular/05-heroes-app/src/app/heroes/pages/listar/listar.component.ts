@@ -9,7 +9,7 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class ListarComponent implements OnInit {
 
-  heroes: Array<Heroe> = []
+  heroes: Heroe[] = []
 
 
   constructor(private heroS: HeroesService) { }
