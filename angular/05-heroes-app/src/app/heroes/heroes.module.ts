@@ -12,6 +12,7 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { HeroCardComponent } from './pages/components/hero-card/hero-card.component';
+import { ImagenPipe } from './pages/pipes/imagen.pipe';
 
 
 
@@ -22,7 +23,8 @@ import { HeroCardComponent } from './pages/components/hero-card/hero-card.compon
     HeroeComponent,
     HomeComponent,
     ListarComponent,
-    HeroCardComponent
+    HeroCardComponent,
+    ImagenPipe
   ],
   imports: [
     CommonModule,

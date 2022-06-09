@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Heroe } from 'src/app/heroes/interfaces/heroes.interface';
 
 @Component({
@@ -7,13 +8,16 @@ import { Heroe } from 'src/app/heroes/interfaces/heroes.interface';
   styleUrls: ['./hero-card.component.css']
 })
 export class HeroCardComponent implements OnInit {
-// le pongo ! para que se quite el error y vea que siempre voy a enviarlo
+  // le pongo ! para que se quite el error y vea que siempre voy a enviarlo
   @Input() heroesInput!: Heroe
 
 
   constructor() { }
 
   ngOnInit(): void {
+
+    
+
     // console.log(this.heroesInput);
 
   }
