@@ -1,14 +1,21 @@
 <mat-grid-list cols="1" *ngIf="!heroe; else divHeroe">
-<mat-grid-tile>
+  <mat-grid-tile>
     <mat-spinner></mat-spinner>
-</mat-grid-tile>
-
+  </mat-grid-tile>
 </mat-grid-list>
 
 <ng-template #divHeroe>
+  <div fxLayout="row" fxLout.xs="column" fxLayout.Gap="30px">
+    <div fxFlex="50">
+      <h1>
+        {{ heroe.superhero }} <small>{{ heroe.alter_ego }}</small>
+      </h1>
+      <mat-divider></mat-divider>
+      <br />
 
-<div fxLayout="row" fxLout.xs = "column" fxLayout.Gap="30px" >
+      <img [src]="heroe | imagen" />
 
-</div>
-
+    </div>
+    <div fxFlex="50">2</div>
+  </div>
 </ng-template>
