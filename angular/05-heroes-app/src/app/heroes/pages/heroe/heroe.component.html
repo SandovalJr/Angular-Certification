@@ -5,7 +5,7 @@
 </mat-grid-list>
 
 <ng-template #divHeroe>
-  <div fxLayout="row" fxLout.xs="column" fxLayout.Gap="30px">
+  <div fxLayout="row" fxLayout.xs="column" fxLayout.Gap="30px">
     <div fxFlex="50">
       <h1>
         {{ heroe.superhero }} <small>{{ heroe.alter_ego }}</small>
@@ -14,8 +14,20 @@
       <br />
 
       <img [src]="heroe | imagen" />
-
     </div>
-    <div fxFlex="50">2</div>
+
+
+    <div fxFlex="50">
+      <h1>{{heroe.publisher}}</h1>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item>{{heroe.first_appearance}}</mat-list-item>
+        <mat-list-item>{{heroe.characters}}</mat-list-item>
+        <mat-list-item>{{heroe.publisher}}</mat-list-item>
+        <mat-list-item>{{heroe.alter_ego}}</mat-list-item>
+      </mat-list>
+        <br>
+ <button mat-button color="warn" (click)="regresar()">Regresar</button>
+    </div>
   </div>
 </ng-template>
