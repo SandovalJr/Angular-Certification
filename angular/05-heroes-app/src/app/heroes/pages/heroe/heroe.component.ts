@@ -31,7 +31,7 @@ export class HeroeComponent implements OnInit {
     ).subscribe(
       (hero) => {
         this.heroe = hero
-        console.log(this.heroe);
+        // console.log(this.heroe);
       },
       (err) => {
         console.log(err);
