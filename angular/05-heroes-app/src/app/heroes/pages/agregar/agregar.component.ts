@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-agregar',
@@ -23,20 +24,38 @@ export class AgregarComponent implements OnInit {
   ]
 
   heroe: Heroe = {
-    id: '',
     superhero: '',
-    publisher: Publisher.DCComics,
     alter_ego: '',
-    first_appearance: '',
     characters: '',
+    first_appearance: '',
+    publisher: Publisher.DCComics,
     alt_img: '',
   }
 
 
-  constructor() { }
+  constructor(private heroS: HeroesService) { }
 
   ngOnInit(): void {
 
   }
+
+
+  guardar() {
+    // console.log(this.heroe);
+
+
+    if (this.heroe.superhero.trim().length === 0) {
+      return
+    }
+
+    this.heroS.agregarHero(this.heroe).subscribe(heroe => {
+      console.log(heroe);
+    })
+    
+
+  }
+
+
+
 
 }
