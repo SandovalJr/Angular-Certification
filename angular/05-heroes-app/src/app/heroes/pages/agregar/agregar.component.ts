@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
 import { HeroesService } from '../../services/heroes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs';
+import { ConfirmarDeleteComponent } from '../components/confirmar-delete/confirmar-delete.component';
 
 @Component({
   selector: 'app-agregar',
@@ -35,7 +38,7 @@ export class AgregarComponent implements OnInit {
 
 
   constructor(private heroS: HeroesService, private AR: ActivatedRoute
-    , private router: Router) { }
+    , private router: Router, private snakBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -77,8 +80,9 @@ export class AgregarComponent implements OnInit {
     if (this.heroe.id) {
       // Actualizar
       this.heroS.actualizarHero(this.heroe).subscribe(hero => {
-        console.log('actualizando hero');
-        console.log(hero);
+        // console.log('actualizando hero');
+        // console.log(hero);
+        this.mostrarSnakbar('Registro actualizado')
       })
 
     } else {
@@ -86,24 +90,49 @@ export class AgregarComponent implements OnInit {
       this.heroS.agregarHero(this.heroe).subscribe(hero => {
         // console.log(heroe);
         this.router.navigate(['/heroes/editar', hero.id])
+        this.mostrarSnakbar('Registro creado')
+
       })
 
     }
   }
 
 
-  deleteHero(){
+  deleteHero() {
     // console.log(this.heroe.id);
-    
-    this.heroS.deleteHero( this.heroe.id! )
-      .subscribe( resp => {
-        this.router.navigate(['/heroes'])
-        // console.log(resp);
-        console.log('eliminado');
-        
-      });
+
+
+    const dialog = this.dialog.open(ConfirmarDeleteComponent, {
+      width: '300px',
+      data: { ...this.heroe }
+    })
+
+
+    // afterClosed = es decir cuando se cierra la ventana
+    dialog.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.heroS.deleteHero(this.heroe.id!)
+          .subscribe(resp => {
+            this.router.navigate(['/heroes'])
+            // console.log(resp);
+            console.log('eliminado');
+          });
+      }
+
+    })
+
+
+
+
   }
 
+
+  mostrarSnakbar(mensaje: string) {
+    this.snakBar.open(mensaje, 'Cerrar!', {
+      duration: 2500
+    })
+  }
 
 
 }

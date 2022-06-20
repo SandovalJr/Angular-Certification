@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { HeroCardComponent } from './pages/components/hero-card/hero-card.component';
 import { ImagenPipe } from './pages/pipes/imagen.pipe';
+import { ConfirmarDeleteComponent } from './pages/components/confirmar-delete/confirmar-delete.component';
 
 
 
@@ -25,7 +26,8 @@ import { ImagenPipe } from './pages/pipes/imagen.pipe';
     HomeComponent,
     ListarComponent,
     HeroCardComponent,
-    ImagenPipe
+    ImagenPipe,
+    ConfirmarDeleteComponent
   ],
   imports: [
     CommonModule,

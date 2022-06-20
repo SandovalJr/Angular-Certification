@@ -8,6 +8,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MatSelectModule } from '@angular/material/select';
 
@@ -25,7 +27,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule, MatIconModule, MatListModule,
     MatProgressSpinnerModule, MatGridListModule,
     MatAutocompleteModule, MatFormFieldModule,
-    MatInputModule, MatSelectModule
+    MatInputModule, MatSelectModule,
+    MatSnackBarModule, MatDialogModule
   ]
 })
 export class MaterialModule { }
