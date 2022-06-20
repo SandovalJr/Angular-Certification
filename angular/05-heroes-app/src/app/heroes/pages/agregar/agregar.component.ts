@@ -47,7 +47,7 @@ export class AgregarComponent implements OnInit {
         switchMap(({ id }) => this.heroS.getHeroID(id))
       ).subscribe(hero => this.heroe = hero)
 
-      const id = this.AR.snapshot.paramMap.get('id');
+      // const id = this.AR.snapshot.paramMap.get('id');
       // console.log(id);
 
     }
@@ -89,12 +89,20 @@ export class AgregarComponent implements OnInit {
       })
 
     }
-
-
-
-
   }
 
+
+  deleteHero(){
+    // console.log(this.heroe.id);
+    
+    this.heroS.deleteHero( this.heroe.id! )
+      .subscribe( resp => {
+        this.router.navigate(['/heroes'])
+        // console.log(resp);
+        console.log('eliminado');
+        
+      });
+  }
 
 
 
