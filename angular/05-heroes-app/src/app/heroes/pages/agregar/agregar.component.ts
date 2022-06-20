@@ -14,6 +14,9 @@ import { ConfirmarDeleteComponent } from '../components/confirmar-delete/confirm
 })
 export class AgregarComponent implements OnInit {
 
+tipoc:string = ''
+
+
   publishers = [
     {
       id: 'DC Comics',
@@ -71,12 +74,9 @@ export class AgregarComponent implements OnInit {
 
   guardar() {
     // console.log(this.heroe);
-
-
     if (this.heroe.superhero.trim().length === 0) {
       return
     }
-
     if (this.heroe.id) {
       // Actualizar
       this.heroS.actualizarHero(this.heroe).subscribe(hero => {
@@ -84,29 +84,23 @@ export class AgregarComponent implements OnInit {
         // console.log(hero);
         this.mostrarSnakbar('Registro actualizado')
       })
-
     } else {
       // Crear heroe
       this.heroS.agregarHero(this.heroe).subscribe(hero => {
         // console.log(heroe);
         this.router.navigate(['/heroes/editar', hero.id])
         this.mostrarSnakbar('Registro creado')
-
       })
-
     }
   }
 
 
   deleteHero() {
     // console.log(this.heroe.id);
-
-
     const dialog = this.dialog.open(ConfirmarDeleteComponent, {
       width: '300px',
       data: { ...this.heroe }
     })
-
 
     // afterClosed = es decir cuando se cierra la ventana
     dialog.afterClosed().subscribe(result => {
@@ -119,12 +113,8 @@ export class AgregarComponent implements OnInit {
             console.log('eliminado');
           });
       }
-
     })
-
-
-
-
+    
   }
 
 
