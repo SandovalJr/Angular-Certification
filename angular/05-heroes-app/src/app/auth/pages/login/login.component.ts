@@ -16,17 +16,18 @@ export class LoginComponent {
     // ir al backed
     this.authS.login().subscribe((resp) => {
       // console.log(resp);
-      if(resp.id){
+      if (resp.id) {
         this.router.navigate(['./heroes'])
       }
     })
 
 
   }
-  
 
-  Nologin(){
-    this.router.navigate(['./'])
+
+  Nologin() {
+    this.authS.logout();
+    this.router.navigate(['./heroes'])
   }
 
 }
