@@ -80,8 +80,9 @@ tipoc:string = ''
     if (this.heroe.id) {
       // Actualizar
       this.heroS.actualizarHero(this.heroe).subscribe(hero => {
-        // console.log('actualizando hero');
-        // console.log(hero);
+        
+        console.log('actualizando hero');
+        console.log(hero);
         this.mostrarSnakbar('Registro actualizado')
       })
     } else {
