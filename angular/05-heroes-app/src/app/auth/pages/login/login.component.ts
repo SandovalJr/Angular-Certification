@@ -23,5 +23,10 @@ export class LoginComponent {
 
 
   }
+  
+
+  Nologin(){
+    this.router.navigate(['./'])
+  }
 
 }

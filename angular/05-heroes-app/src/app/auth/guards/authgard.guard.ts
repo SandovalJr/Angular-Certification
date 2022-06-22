@@ -16,7 +16,8 @@ export class AuthGuard implements CanLoad {
   //   return true;
   // }
 
-
+// prevenir que el usuario cargue el modulo
+// si antes ya estaba cargado si puede ingresar
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
